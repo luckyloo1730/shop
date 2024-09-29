@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+}
+
+.catalog {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+@media (max-width: 800px) {
+    .catalog {
+        flex-direction: column;
+    }
+}
+
+.logo {
+    height: 90px;
+    width: 90px;
+}
+
+.rounded {
+    border-radius: 30px;
+}
