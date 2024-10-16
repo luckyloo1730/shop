@@ -1,51 +1,26 @@
-function addToCart() {
-    const productData = event.target.getAttribute("data-product");
-    const product = JSON.parse(productData);
-    cart.addItem(product)
+const cart_list = document.querySelector('.container');
+const overallPrice = document.querySelector('.overall-price');
+
+function get_item(item) {
+    return `<div class = "cart-item">
+        <h4 class="cart-item-title">${item.name}</h4>
+        <img class="h-64 w-64 rounded hover:transform hover:scale-105 hover:transition hover:duration-300 transition duration-300" src="${item.image}" alt="">
+        
+        <div class="cart-item-quantity mt-5">Кількість: 
+        <input data-item="${item.name}" class="form-control quantity-input" type="number" name="quantity" min="1" value="${item.quantity}">
+        </div>
+        <div class="cart-item-price mt-5 font-bold font-mono" data-price="${item.price}">Ціна: ${item.price * item.quantity} $</div>
+        </div>`
 }
 
-class ShoppingCart {
-    constructor() {
-        this.items = {}
-        this.total = 0;
+function showCartList() {
+    cart_list.innerHTML = ''
+    for (let key in cart.items) { // проходимося по всіх ключах об'єкта cart.items
+        cart_list.innerHTML += get_item(cart.items[key])
     }
-    addItem(item) {
-        if (this.items[item.title]) {
-            this.items[item.title].quanity += 1;
-        } else {
-            this.items[item.title] = item;
-            this.items[item.title].quantity += 1;
-        }
-    this.saveCart()
-    }
-    saveCartToCookies() {
-        let cartJSON = JSON.stringify(this.items)
-        document.cookie = `cart=${JSON.stringify(cartJSON)}; max-age=${60 * 60 * 24 * 7};
-        path=/`
-    }
-    loadCart () {
-        let cartCookie = getCookieValue('cart');
-        if (cartCookie && cartCookie !== '') {
-            this.items = JSON.parse(cartCookie)
-        }
-    }
+    overallPrice.innerHTML = cart.calculateTotal()
+
+
 }
 
-function getCookieValue(cookieName) {
-// Розділяємо всі куки на окремі частини
-    const cookies = document.cookie.split(';')
-// Шукаємо куки з вказаним ім'ям
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim() // Видаляємо зайві пробіли
-// Перевіряємо, чи починається поточне кукі з шуканого імені
-        if (cookie.startsWith(cookieName + '=')) {
-// Якщо так, повертаємо значення кукі
-            return cookie.substring(cookieName.length + 1) // +1 для пропуску "="
-        }
-    }
-// Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок
-    return ''
-}
-
-let cart = new ShoppingCart();
-
+showCartList()

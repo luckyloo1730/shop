@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<!--    <link rel="stylesheet" href="css/output.css">-->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/contactForm.css">
     <link rel="stylesheet" href="css/themeSwitch.css">
@@ -12,7 +13,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="logo" src="https://ideogram.ai/assets/image/lossless/response/afQX2N0kRvWIiHcN8PK3Iw" alt=""></a>
+            <a class="navbar-brand" href="#"><img class="logo" src="https://i.imgur.com/ZN6WynX.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,36 +44,53 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                <button class="cart-btn" id="cartBtn">
+                    Cart
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bell" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M17 17h-11v-14h-2" />
+                        <path d="M6 5l14 1l-1 7h-13" />
+                    </svg>
+                    <span class="cart-counter">0</span>
+                </button>
+
             </div>
         </div>
     </nav>
 </header>
 
-<label for="theme" class="theme" id="theme-switcher">
-	<span class="theme__toggle-wrap">
-		<input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
-		<span class="theme__fill"></span>
-		<span class="theme__icon">
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-			<span class="theme__icon-part"></span>
-		</span>
-	</span>
-</label>
+<h1 class="text-center font-bold font-mono text-4xl mt-5">Catalog</h1>
+<div class="catalog mt-24"></div>
 
-<div class="catalog"></div>
+<!-- Reviews -->
+
+<h1 class="font-mono font-bold text-2xl text-center mt-5 font-mono">Reviews</h1>
+<div class="border border-gray-600 border-solid rounded mt-5 flex flex-row flex-wrap justify-center p-4 gap-4">
+<!-- Review box -->
+<div class="border border-solid text-center flex flex-col justify-center w-64 h-64 border-gray-600 p-4 rounded">
+    <p>The best service ever, got my delivery quick!</p>
+    <p class="font-mono font-bold">John</p>
+</div>
+    <div class="border border-solid text-center flex flex-col justify-center w-64 h-64 border-gray-600 p-4 rounded">
+        <p>The prices and functionality are amazing!</p>
+        <p class="font-mono font-bold">Dima</p>
+    </div>
+    <div class="border border-solid text-center flex flex-col justify-center w-64 h-64 border-gray-600 p-4 rounded">
+        <p>Got my laptop here, it's great and so far there have been 0 issues!</p>
+        <p class="font-mono font-bold">Anna</p>
+    </div>
+</div>
+
 
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                <img class="logo rounded" src="https://ideogram.ai/assets/image/lossless/response/afQX2N0kRvWIiHcN8PK3Iw" alt="">
+                <img class="logo rounded" src="https://i.imgur.com/ZN6WynX.png" alt="">
             </a>
             <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
         </div>
