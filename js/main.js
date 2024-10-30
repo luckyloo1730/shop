@@ -38,7 +38,8 @@ function getProductCard(product) {
 }
 
 
-function addToCart(event) {
+function addTo
+(event) {
     const productData = event.target.getAttribute("data-product");
 
     const product = JSON.parse(productData);
@@ -56,21 +57,22 @@ class ShoppingCart {
 
     // Додавання товару до кошика
     addItem(item) {
-        if (this.items[item.title]) {
-            this.items[item.title].quantity += 1; // Якщо товар вже є, збільшуємо його кількість на одиницю
+        if (this.items[item.name]) {
+            this.items[item.name].quantity += 1; // Якщо товар вже є, збільшуємо його кількість на одиницю
         } else {
-            this.items[item.title] = item; // Якщо товару немає в кошику, додаємо його
-            this.items[item.title].quantity = 1;
+            this.items[item.name] = item; // Якщо товару немає в кошику, додаємо його
+            this.items[item.name].quantity = 1;
         }
         this.updateCounter(); // Оновлюємо лічильник товарів
         this.saveCartToCookies();
     }
 
-    // Зміна кількості товарів товарів
+    // Зміна кількості товарів
     updateQuantity(itemTitle, newQuantity) {
+        console.log("Quality updated")
         if (this.items[itemTitle]) {
             this.items[itemTitle].quantity = newQuantity;
-            if (this.items[itemTitle].quantity == 0) {
+            if (this.items[itemTitle].quantity === 0) {
                 delete this.items[itemTitle];
             }
             this.updateCounter();
@@ -143,3 +145,30 @@ function addToCart(event) {
 // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок
         return ''
     }
+
+function searchProduct(event) {
+    event.preventDefault();
+    const query = document.querySelector(".query").value.toLowerCase()
+    const catalog = document.querySelector(".catalog")
+    catalog.innerHTML = "";
+    getProducts().then(function (products) {
+        let productList = document.querySelector(".catalog")
+        if (productList) {
+            products.forEach(product => {
+                if (product.name.toLowerCase().includes(query)) {
+                productList.innerHTML += getProductCard(product)
+                }
+            })
+        }
+        let buyButtons = document.querySelectorAll(".btn");
+        if (buyButtons) {
+            buyButtons.forEach(function (button) {
+                button.addEventListener("click", addToCart)
+            })
+        }
+    })
+}
+
+const form = document.querySelector("#form");
+
+form.addEventListener('submit', searchProduct);
