@@ -1,8 +1,9 @@
 /* Body */
 .container3 {
-    display: grid;
+    /*display: grid;*/
     grid-template-columns: auto;
     gap: 0px;
+    display: none;
 }
 
 hr {

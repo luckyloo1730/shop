@@ -32,7 +32,7 @@ function getProductCard(product) {
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">Price: ${product.price}$</p>
-                    <button data-product='${JSON.stringify(product)}' class="btn btn-primary">Purchase</button>
+                    <button data-product='${JSON.stringify(product)}' class="btn purchase btn-primary">Purchase</button>
                 </div>
             </div>`;
 }
