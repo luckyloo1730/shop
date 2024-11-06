@@ -141,6 +141,32 @@
     .mt-5 {
         margin-top: 46px;
     }
+    /* From Uiverse.io by ShrinilDhorda */
+    .btn-back {
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+        border: none;
+        outline: none;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        background-color: rgb(14, 14, 26);
+        color: rgb(234, 234, 234);
+        font-weight: 700;
+        transition: 0.6s;
+        box-shadow: 0px 0px 60px #1f4c65;
+        -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    }
+
+    .btn-back:active {
+        scale: 0.92;
+    }
+
+    .btn-back:hover {
+        background: rgb(2,29,78);
+        background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+        color: rgb(4, 4, 38);
+    }
 </style>
 <body>
 <div class="flex justify-center mt-5">
@@ -159,11 +185,20 @@
 <!--            <button type="button" class="track">Track my package</button>-->
 <!--        </div>-->
     </div>
+
 </div>
 </div>
+<div class="flex justify-center mt-5">
+    <button class="btn-back" onclick="goBack()">
+        Go back
+    </button>
+</div>
 
-
-
+<script>
+    const goBack = () => {
+        window.location.href = '/'
+    }
+</script>
 </body>
 
 </html>

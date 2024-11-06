@@ -326,3 +326,7 @@ body {
     align-items: center;
     margin-top: 15px;
 }
+
+.shop {
+    display: none;
+}

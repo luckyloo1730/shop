@@ -1,3 +1,6 @@
+const overlay = document.querySelector('.overlay');
+const modal12 = document.querySelector('.container3');
+const body = document.querySelector('body')
 const cart_list = document.querySelector('.container');
 const overallPrice = document.querySelector('.overall-price');
 const finalprice = document.querySelector('.final-price');
@@ -51,6 +54,7 @@ function updateQuantity(button, change) {
 
 
 
+const checkoutBtn = document.querySelector('.checkout-btn');
 
 function showCartList() {
     console.log(cart.items)
@@ -71,18 +75,38 @@ function showCartList() {
 
 showCartList()
 
-const overlay = document.querySelector('.overlay');
-const modal12 = document.querySelector('.container3');
-const checkoutBtn = document.querySelector('.checkout-btn');
-const body = document.querySelector('body')
 
 
 checkoutBtn.addEventListener('click', () => {
     overlay.style.display = 'block';
     modal12.style.display = 'grid';
     body.style.overflow = 'hidden';
+    setCookie("cart", "", {"max-age": -1})
 })
 
+function setCookie(name, value, options = {}) {
+
+    options = {
+        path: '/',
+        ...options
+    };
+
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+
+    document.cookie = updatedCookie;
+}
 // function checkout() {
 //     const modal12 = document.querySelector('.modal12');
 //     const body = document.querySelector('body')
